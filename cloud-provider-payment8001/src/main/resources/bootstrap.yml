@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: cloud-payment-service
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+      config:
+        profile-separator: '-'
+        format: YAML
+      #  watch:
+      #    wait-time: 10 当consul服务器上更新配置信息后的刷新时间
+
+  #1.在consul服务器上首先创建config文件夹
+  #2.其次在config文件夹下创建以下文件夹，以/结尾
+  #config/cloud-payment-service/
+  #      /cloud-payment-service-dev/
+  #      /cloud-payment-service-prod/
+  #3.在三个文件夹下创建data内容，data不再是文件夹
+  #
+  #config/cloud-payment-service/data
+  #      /cloud-payment-service-dev/data
+  #      /cloud-payment-service-prod/data
